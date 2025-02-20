@@ -36,7 +36,23 @@ Here is the default configuration and an explanation of available options:
 
 ```yaml
 enabled: true
+custom_rules: 'Any-Latin; Latin-ASCII'
+allowed_chars: 'A-Za-z0-9 \-_,.'
 ```
+
+### Options
+
+- **`enabled`** (boolean) – Determines whether the plugin is active. Set to `true` to enable transliteration, or `false` to disable it.  
+- **`custom_rules`** (string) – Defines the transliteration rules using ICU's transliteration syntax. The default value `'Any-Latin; Latin-ASCII'` converts characters from any script to Latin and then replaces Latin characters with their closest ASCII equivalent. You can modify this to fit your needs.
+    - **Examples:**  
+        - `'Any-Latin; Latin-ASCII'`: Converts non-Latin characters to Latin and then to ASCII.  
+        - `'Greek-Latin; Latin-ASCII'`: Converts Greek characters to Latin and then to ASCII.  
+        - `'Cyrillic-Latin; Latin-ASCII'`: Converts Cyrillic characters to Latin and then to ASCII.  
+
+- **`allowed_chars`** (string) – A regular expression pattern that defines which characters are permitted in the transliterated output. The default setting `'A-Za-z0-9 \-_,.'` allows uppercase and lowercase letters, numbers, spaces, hyphens, underscores, commas, and periods.
+    - **Examples:**  
+        - `'A-Za-z0-9 \-_'`: Allows uppercase and lowercase letters, numbers, spaces, hyphens, and underscores.  
+        - `'A-Za-z0-9 \-_,.'`: Allows letters, numbers, spaces, hyphens, underscores, commas, and periods.  
 
 Note that if you use the Admin Plugin, a file with your configuration named `transliterate.yaml` will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
 
