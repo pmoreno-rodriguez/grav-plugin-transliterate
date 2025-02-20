@@ -1,0 +1,13 @@
+en:
+  PLUGIN_TRANSLITERATE:
+    CUSTOM_RULES_LABEL: Custom Transliteration Rules
+    CUSTOM_RULES_HELP: Enter custom transliteration rules (e.g., "Any-Latin; Latin-ASCII").
+    ALLOWED_CHARS_LABEL: Allowed Characters
+    ALLOWED_CHARS_HELP: Enter characters to allow in the output (e.g., "A-Za-z0-9 ,.-_").
+
+es:
+  PLUGIN_TRANSLITERATE:
+    CUSTOM_RULES_LABEL: Reglas de Transliteración Personalizadas
+    CUSTOM_RULES_HELP: Ingresa reglas de transliteración personalizadas (ej., "Any-Latin; Latin-ASCII").
+    ALLOWED_CHARS_LABEL: Caracteres Permitidos
+    ALLOWED_CHARS_HELP: Ingresa los caracteres permitidos en la salida (ej., "A-Za-z0-9 ,.-_").

@@ -1,0 +1,48 @@
+name: Transliterate
+slug: transliterate
+type: plugin
+version: 1.0.0
+description: A Grav plugin that provides Twig and Markdown filters (transliterate and toAscii) for converting text to Latin/ASCII equivalents.
+icon: plug
+author:
+  name: pmdesign
+  email: pmoreno@pmdesign.dev
+homepage: https://github.com/pmoreno-rodriguez/grav-plugin-transliterate
+demo: https://pmdesign.dev
+keywords: grav, plugin, transliterate, ascii
+bugs: https://github.com/pmoreno-rodriguez/grav-plugin-transliterate/issues
+docs: https://github.com/pmoreno-rodriguez/grav-plugin-transliterate/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=7.1.3' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    
+    custom_rules:
+      type: text
+      label: PLUGIN_TRANSLITERATE.CUSTOM_RULES_LABEL
+      help: PLUGIN_TRANSLITERATE.CUSTOM_RULES_HELP
+      default: 'Any-Latin; Latin-ASCII'
+      validate:
+        type: string
+
+    allowed_chars:
+      type: text
+      label: PLUGIN_TRANSLITERATE.ALLOWED_CHARS_LABEL
+      help: PLUGIN_TRANSLITERATE.ALLOWED_CHARS_HELP
+      default: 'A-Za-z0-9 \-_,.'
+      validate:
+        type: string
