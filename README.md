@@ -77,7 +77,7 @@ Cafe en Paris
 
 #### ASCII Conversion
 ```twig
-{{ 'Café en París' | to_ascii }}
+{{ 'Café en París @#$%^&*()' | to_ascii }}
 ```
 
 **Output:**
@@ -119,6 +119,55 @@ You can chain the filters for more advanced transformations:
 ```
 Cafe en Paris
 ```
+
+## Using Unicode Codes in Transliteration Rules
+
+In the example:
+
+```twig
+{{ 'Café en París' | transliterate('Any-Latin; Latin-ASCII; [\\u0100-\\u017F] remove') }}
+```
+The part `[\\u0100-\\u017F]` is a range of Unicode characters that will be removed during the transliteration process. Below, we explain how these codes work and how you can use them in your custom rules.
+
+### **What are Unicode Codes?**
+Unicode is a standard that assigns a unique number (called a "code point") to every character, symbol, or emoji across all languages and writing systems. Unicode codes are represented in hexadecimal format, such as `U+0100` or `U+017F`.
+
+- **Examples**:
+  - `U+00E9` represents the letter `é` (e with an acute accent).
+  - `U+0100` represents the letter `Ā` (A with a macron).
+  - `U+017F` represents the letter `ſ` (long s).
+
+### **What does `[\\u0100-\\u017F]` mean?**
+This range of Unicode characters includes extended Latin letters with diacritics, such as:
+- `Ā` (U+0100)
+- `ā` (U+0101)
+- `Ē` (U+0112)
+- `ē` (U+0113)
+- `Ī` (U+012A)
+- `ī` (U+012B)
+- `Ō` (U+014C)
+- `ō` (U+014D)
+- `Ū` (U+016A)
+- `ū` (U+016B)
+- `ſ` (U+017F)
+
+By using `[\\u0100-\\u017F] remove`, you are indicating that all characters in this range should be removed from the resulting text.
+
+### **How to Find More Unicode Codes**
+You can consult Unicode character tables in the following resources:
+1. **Official Unicode Charts**: [unicode.org/charts](https://unicode.org/charts/)
+   - Here you will find all character ranges organized by language and type.
+2. **FileFormat.Info**: [fileformat.info](https://www.fileformat.info/info/unicode/)
+   - A useful resource for searching specific characters and their Unicode codes.
+3. **Wikipedia**: [List of Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters)
+   - A complete list of Unicode characters with examples.
+
+### **How to Use Unicode Codes in Custom Rules**
+You can use Unicode character ranges in transliteration rules to:
+1. **Remove Specific Characters**:
+   - Example: `[\\u0100-\\u017F] remove` removes all extended Latin letters.
+2. **Convert Specific Characters**:
+   - Example: `[\\u00C0-\\u00FF] Latin-ASCII` converts Latin letters with diacritics to ASCII.
 
 ## Credits
 
