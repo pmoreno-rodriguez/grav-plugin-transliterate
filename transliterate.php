@@ -5,9 +5,14 @@ use Grav\Common\Plugin;
 use Grav\Plugin\Twig\TransliterateTwigFilter;
 
 /**
- * Class TransliteratePlugin
- * @package Grav\Plugin
- */
+* Class TransliteratePlugin
+* @category   Extensions
+* @package    Grav\Plugin
+* @author     Pedro Moreno <https://github.com/pmoreno-rodriguez>
+* @license    http://www.opensource.org/licenses/mit-license.html MIT License
+* @link       https://github.com/pmoreno-rodriguez/grav-plugin-transliterate
+*/
+
 class TransliteratePlugin extends Plugin
 {
     /**

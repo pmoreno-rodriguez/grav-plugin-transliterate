@@ -5,6 +5,16 @@ use Grav\Common\Grav;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
+/**
+* Class TransliteratePlugin
+* @category   Extensions
+* @package    Grav\Plugin
+* @subpackage TransliterateTwigFilter
+* @author     Pedro Moreno <https://github.com/pmoreno-rodriguez>
+* @license    http://www.opensource.org/licenses/mit-license.html MIT License
+* @link       https://github.com/pmoreno-rodriguez/grav-plugin-transliterate
+*/
+
 class TransliterateTwigFilter extends AbstractExtension
 {
     // Cache for transliterations
